@@ -559,15 +559,6 @@ class Vehicle(BaseVehicle):
         self.repair()
         self.repair_timer = ID_NONE
 
-    def get_speed(self) -> int:
-        x, y, z = self.get_velocity()
-        x_res = abs(x)**2.0
-        y_res = abs(y)**2.0
-        z_res = abs(z)**2.0
-
-        res = math.sqrt(x_res + y_res + z_res) * 100.3
-        return int(res)
-
 @Vehicle.on_damage_status_update
 @Vehicle.using_registry
 def on_vehicle_damage_status(vehicle: Vehicle, player: Player) -> None:
